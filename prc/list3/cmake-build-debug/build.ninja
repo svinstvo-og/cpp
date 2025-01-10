@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: list3
+# Project: Project
 # Configurations: Debug
 # =============================================================================
 
@@ -40,61 +40,6 @@ include CMakeFiles/rules.ninja
 # Logical path to working directory; prefix for absolute paths.
 
 cmake_ninja_workdir = D$:/code/c++/prc/list3/cmake-build-debug/
-# =============================================================================
-# Object build statements for EXECUTABLE target list3
-
-
-#############################################
-# Order-only phony target for list3
-
-build cmake_object_order_depends_target_list3: phony || .
-
-build CMakeFiles/list3.dir/item.cpp.obj: CXX_COMPILER__list3_unscanned_Debug D$:/code/c++/prc/list3/item.cpp || cmake_object_order_depends_target_list3
-  DEP_FILE = CMakeFiles\list3.dir\item.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -ID:/code/c++/prc/list3/.
-  OBJECT_DIR = CMakeFiles\list3.dir
-  OBJECT_FILE_DIR = CMakeFiles\list3.dir
-  TARGET_COMPILE_PDB = CMakeFiles\list3.dir\
-  TARGET_PDB = list3.pdb
-
-build CMakeFiles/list3.dir/list.cpp.obj: CXX_COMPILER__list3_unscanned_Debug D$:/code/c++/prc/list3/list.cpp || cmake_object_order_depends_target_list3
-  DEP_FILE = CMakeFiles\list3.dir\list.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -ID:/code/c++/prc/list3/.
-  OBJECT_DIR = CMakeFiles\list3.dir
-  OBJECT_FILE_DIR = CMakeFiles\list3.dir
-  TARGET_COMPILE_PDB = CMakeFiles\list3.dir\
-  TARGET_PDB = list3.pdb
-
-build CMakeFiles/list3.dir/main.cpp.obj: CXX_COMPILER__list3_unscanned_Debug D$:/code/c++/prc/list3/main.cpp || cmake_object_order_depends_target_list3
-  DEP_FILE = CMakeFiles\list3.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -ID:/code/c++/prc/list3/.
-  OBJECT_DIR = CMakeFiles\list3.dir
-  OBJECT_FILE_DIR = CMakeFiles\list3.dir
-  TARGET_COMPILE_PDB = CMakeFiles\list3.dir\
-  TARGET_PDB = list3.pdb
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target list3
-
-
-#############################################
-# Link the executable list3.exe
-
-build list3.exe: CXX_EXECUTABLE_LINKER__list3_Debug CMakeFiles/list3.dir/item.cpp.obj CMakeFiles/list3.dir/list.cpp.obj CMakeFiles/list3.dir/main.cpp.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\list3.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\list3.dir\
-  TARGET_FILE = list3.exe
-  TARGET_IMPLIB = liblist3.dll.a
-  TARGET_PDB = list3.pdb
-
 
 #############################################
 # Utility command for edit_cache
@@ -121,8 +66,6 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build list3: phony list3.exe
-
 # =============================================================================
 # Folder targets.
 
@@ -131,7 +74,12 @@ build list3: phony list3.exe
 #############################################
 # Folder: D:/code/c++/prc/list3/cmake-build-debug
 
-build all: phony list3.exe
+build all: phony
+
+# =============================================================================
+# Unknown Build Time Dependencies.
+# Tell Ninja that they may appear as side effects of build rules
+# otherwise ordered by order-only dependencies.
 
 # =============================================================================
 # Built-in targets
