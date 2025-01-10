@@ -1,0 +1,5 @@
+# ninja log v6
+1	419	7582253415714709	CMakeFiles/MyProject.dir/item.cpp.obj	569b28ed6ba1c00a
+6	437	7582253415764762	CMakeFiles/MyProject.dir/main.cpp.obj	d114eee5710e5a6e
+4	443	7582253415744743	CMakeFiles/MyProject.dir/list.cpp.obj	cfb7a60f53d27a33
+443	645	7582253420136021	MyProject.exe	2c21b3fa904fc5aa

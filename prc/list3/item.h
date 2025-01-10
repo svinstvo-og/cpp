@@ -16,6 +16,7 @@ public:
     void print() const;
     void printLn() const;
     friend class List; //List is friend, so it can access even to private members of Item
+    friend class ListIterator;
 };
 
 #endif // ITEM_H

@@ -1,5 +1,7 @@
 #include "list.h"
 #include <iostream>
+#include <stdexcept>
+#include "iterator.h"
 
 List::List() {
     createEmptyList();
@@ -47,12 +49,14 @@ void List::deepCopy(List &src){
         this->pushBack(curr->getData());
         curr = curr->next;
     }
+    this->failBit = src.failBit;
 }
 
 void List::createEmptyList(){
     first = new Item;
     last = new Item;
     counter = 0;
+    failBit = false;
     first->next = last;
     last->prev = first;
 }
@@ -63,7 +67,9 @@ List::~List(){
     delete last;
 }
 
-void List::clean(){
+void List::clean() noexcept{
+    //unexpected exception
+    //throw ListException("This is bad idea!");
     while(!isEmpty()){
         popFront();
     }
@@ -84,8 +90,14 @@ void List::pushBack(Data d){
     last = tmp;
     //6. update counter
     counter++;*/
+    try{
+        last->next = new Item;
+    }
+    catch(std::bad_alloc &e){
+        throw ListException("Memory allocation failed while pushing new element");
+    }
+
     last->setData(d);
-    last->next = new Item;
     last->next->prev = last;
     last = last->next;
     counter++;
@@ -94,8 +106,11 @@ void List::pushBack(Data d){
 // last <-> first
 // next <-> prev
 void List::pushFront(Data d){
+    first->prev = new(std::nothrow) Item;
+    if(!first->prev){
+        throw ListException("Memory allocation failed while pushing new element");
+    }
     first->setData(d);
-    first->prev = new Item;
     first->prev->next = first;
     first = first->prev;
     counter++;
@@ -103,8 +118,7 @@ void List::pushFront(Data d){
 
 void List::popFront(){
     if(isEmpty()){
-        return;
-        //better solution -> throw an exception
+        throw ListException("Popping from empty list");
     }
     first = first->next;
     delete first->prev; //release memory!
@@ -112,11 +126,63 @@ void List::popFront(){
     counter--;
 }
 
+/*
+//1. use return value
+bool List::popFront(){
+    if(isEmpty()){
+        return false;
+    }
+    first = first->next;
+    delete first->prev; //release memory!
+    first->prev = nullptr;
+    counter--;
+    return true;
+}
+*/
+
+//2. use function parameter passed by reference
+/*
+void List::popFront(bool &ok){
+    ok = true;
+    if(isEmpty()){
+        ok = false;
+        return;
+    }
+    popFront();
+}
+*/
+
+//3. global variable
+/*
+void List::popFront(){
+    if(isEmpty()){
+        error = true; //error would be global variable
+        return;
+    }
+    first = first->next;
+    delete first->prev; //release memory!
+    first->prev = nullptr;
+    counter--;
+}
+*/
+
+//4. use attribute
+/*
+void List::popFront(){
+    if(isEmpty()){
+        failBit = true; //error would be global variable
+        return;
+    }
+    first = first->next;
+    delete first->prev; //release memory!
+    first->prev = nullptr;
+    counter--;
+}
+*/
 
 void List::popBack(){
     if(isEmpty()){
-        return;
-        //better solution -> throw an exception
+        throw ListException("Popping from empty list");
     }
     last = last->prev;
     delete last->next; //release memory!
@@ -133,4 +199,8 @@ void List::print() const{
     if(isEmpty()){
         std::cout << "List is empty!" << std::endl;
     }
+}
+
+ListIterator* List::getIterator(){
+    return new ListIterator(this);
 }
