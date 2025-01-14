@@ -19,9 +19,13 @@ set(HEADERS
         datatype.h
         item.h
         list.h
+        vector.h
+        iterator.h
+        listexception.h
         main.cpp
         iterator.cpp
         vector.cpp
+        vectoriterator.cpp
 )
 
 # Create the executable

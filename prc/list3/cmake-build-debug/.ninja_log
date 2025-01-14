@@ -1,5 +1,7 @@
 # ninja log v6
-1	419	7582253415714709	CMakeFiles/MyProject.dir/item.cpp.obj	569b28ed6ba1c00a
-6	437	7582253415764762	CMakeFiles/MyProject.dir/main.cpp.obj	d114eee5710e5a6e
-4	443	7582253415744743	CMakeFiles/MyProject.dir/list.cpp.obj	cfb7a60f53d27a33
-443	645	7582253420136021	MyProject.exe	2c21b3fa904fc5aa
+4	321	7582258174007321	CMakeFiles/MyProject.dir/item.cpp.obj	569b28ed6ba1c00a
+8	337	7582258174047356	CMakeFiles/MyProject.dir/main.cpp.obj	d114eee5710e5a6e
+7	401	7582258174037347	CMakeFiles/MyProject.dir/list.cpp.obj	cfb7a60f53d27a33
+401	510	7582258177970884	MyProject.exe	64c1f3f9cc263f26
+10	273	7582258174067374	CMakeFiles/MyProject.dir/iterator.cpp.obj	b738c59aaa1ab97a
+12	310	7582258174087392	CMakeFiles/MyProject.dir/vector.cpp.obj	9d40b2005f73e000
